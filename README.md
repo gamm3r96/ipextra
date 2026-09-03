@@ -14,7 +14,15 @@
 
 ## Description
 
-`ipextra` is a lightweight AWK-based tool for extracting IPv4 addresses from text files. It efficiently parses input and extracts valid IP addresses using pattern matching.
+`ipextra` is a lightweight, high-performance AWK-based utility designed to extract valid IPv4 addresses from unstructured text data. Built for speed and simplicity, it efficiently parses log files, network captures, and any text containing IP addresses.
+
+The tool uses intelligent pattern matching to:
+- Identify IPv4 address formats (x.x.x.x where each octet is 0-255)
+- Handle IPs embedded in text, URLs, or followed by ports
+- Filter out invalid addresses (e.g., 999.999.999.999)
+- Process large files quickly with minimal memory footprint
+
+Ideal for system administrators, security analysts, and developers who need to quickly extract IP addresses from logs, configuration files, or network data without installing heavy dependencies.
 
 ## Usage
 
