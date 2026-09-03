@@ -1,10 +1,27 @@
 #!/usr/bin/awk -f
-# author Gamm3r96
-/^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[1-9][0-9]*$/ {
-        print;
-        next;
-}
-/^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[1-9][0-9]*[^0-9\.:].*$/ {
-        sub("[^0-9.].*$","");
-        print;
+# ipextra - IP Address Extraction Tool
+# Author: gamm3r96
+# Extracts valid IPv4 addresses from input text
+
+# Match lines that are just an IP address or start with one
+/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ {
+    # Extract the IP part (first field or up to non-IP chars)
+    ip = $1
+    gsub(/[^0-9.].*$/, "", ip)
+    
+    # Split into octets and validate
+    n = split(ip, octets, ".")
+    if (n == 4) {
+        valid = 1
+        for (i = 1; i <= 4; i++) {
+            val = int(octets[i])
+            if (val < 0 || val > 255) {
+                valid = 0
+                break
+            }
+        }
+        if (valid) {
+            print ip
+        }
+    }
 }
