@@ -1,9 +1,49 @@
 # ipextra
 IP address extraction using awk — now with a full CLI.
 
-## Install (Debian/Ubuntu)
+## Installation
+
+### Debian / Ubuntu (.deb)
+Download the package, then:
+
 ```bash
 sudo dpkg -i ipextra_1.1-1_all.deb
+```
+
+If `dpkg` reports missing dependencies, repair them with:
+
+```bash
+sudo apt --fix-broken install
+```
+
+Alternative (apt handles dependencies automatically):
+
+```bash
+sudo apt install ./ipextra_1.1-1_all.deb
+```
+
+Verify the installation:
+
+```bash
+dpkg -s ipextra        # package status
+ipextra --version      # should print: ipextra 1.1
+which ipextra          # /usr/bin/ipextra
+```
+
+### Fedora / RHEL / openSUSE
+No RPM is provided; install the two files manually:
+
+```bash
+sudo install -m755 build/usr/bin/ipextra        /usr/bin/ipextra
+sudo install -m644 build/usr/share/ipextra/ipextra.awk /usr/share/ipextra/ipextra.awk
+```
+
+### Alpine / busybox systems
+The wrapper only needs POSIX sh and any awk that supports `-f`; busybox awk works out of the box. Use the manual-install commands above.
+
+### Uninstall (Debian/Ubuntu)
+```bash
+sudo dpkg -r ipextra
 ```
 
 ## Usage
