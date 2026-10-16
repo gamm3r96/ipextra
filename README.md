@@ -87,3 +87,20 @@ echo 10.0.0.999 | ipextra -V      # validate a token (exit 2)
 
 https://github.com/gamm3r96/ipextra/blob/master/awk.png
 ![Alt text](https://github.com/gamm3r96/ipextra/blob/master/awk.png?raw=true "ipextra @gamm3r96")
+
+## Building the .deb from source
+
+```bash
+./build_deb.sh        # produces ipextra_1.1-1_all.deb in the repo root
+```
+
+Requires `dpkg-deb` (Debian/Ubuntu) or any system with `dpkg-dev`.
+
+## Repository layout
+
+| File          | Purpose                                             |
+|---------------|-----------------------------------------------------|
+| `ipextra.sh`  | CLI wrapper (options, modes, --help)                |
+| `ipextra.awk` | IPv4 extraction engine (runs under gawk/mawk)       |
+| `ipextra`     | Legacy one-liner kept for reference                 |
+| `build_deb.sh`+ `debian.control` | Debian package build script & template |

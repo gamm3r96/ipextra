@@ -1,0 +1,12 @@
+Package: ipextra
+Version: @VERSION@
+Section: utils
+Priority: optional
+Architecture: all
+Depends: awk
+Maintainer: Gamm3r96 <gamm3r96@example.com>
+Homepage: https://github.com/gamm3r96/ipextra
+Description: Extract IPv4 addresses from text using awk
+ ipextra scans files or stdin and prints valid IPv4 addresses, one per line.
+ Modes: extract, grep (line filter), count, validate. Options for unique,
+ numeric sort, custom regex patterns, and multi-file input.

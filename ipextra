@@ -1,10 +1,10 @@
+# Legacy one-liner kept for reference. The maintained implementation is:
+#   ipextra.sh  - CLI wrapper (modes, --help, options)
+#   ipextra.awk - IPv4 extraction engine
+# Install via the Debian package (see README.md) or run from source:
+#   IPEXTRA_AWK=./ipextra.awk ./ipextra.sh < file
 #!/usr/bin/awk -f
-# author Gamm3r96
 /^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[1-9][0-9]*$/ {
         print;
         next;
-}
-/^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[1-9][0-9]*[^0-9\.:].*$/ {
-        sub("[^0-9.].*$","");
-        print;
 }
